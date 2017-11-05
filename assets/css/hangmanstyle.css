@@ -1,0 +1,11 @@
+#blank{
+	letter-spacing: 15px;
+}
+
+.jumbotron {
+	margin: 0 auto;
+}
+
+#wrap {
+	max-height: 100%;
+}
