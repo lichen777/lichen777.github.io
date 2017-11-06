@@ -67,6 +67,11 @@ function startGame() {
 
   arrayBlank = stringToArray(blank);
 
+  display();
+
+}
+
+function display(){
   // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
   var html =
     "<br><p>wins: " + wins + "</p>" +
@@ -76,7 +81,6 @@ function startGame() {
         
   // Set the inner HTML contents of the #game div to our html string
   document.querySelector("#game").innerHTML = html;
-
 }
 
 function theGame(){
@@ -110,14 +114,6 @@ function theGame(){
     restartGame();
   }
 
-// Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
-  var html =
-    "<br><p>wins: " + wins + "</p>" +
-    "<p>Word to guess: </p>" + "<p id='blank'>" + blank + "</p>" +
-    "<p>Numbers of guesses remaining: " + lives + "</p>" + 
-    "<p>Letters already Guessed: " + alreadyGuessed + "</p>";
-        
-  // Set the inner HTML contents of the #game div to our html string
-  document.querySelector("#game").innerHTML = html;
+  display();
 
 }
