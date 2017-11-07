@@ -13,3 +13,8 @@ input {
 .row {
 	min-height: 100vh;
 }
+
+html {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
