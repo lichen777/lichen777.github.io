@@ -9,3 +9,7 @@
 input {
 	font-size: 16px;
 }
+
+.row {
+	min-height: 100%;
+}
