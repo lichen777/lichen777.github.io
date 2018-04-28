@@ -116,7 +116,7 @@ class HomeIndex extends React.Component {
 
                     <section id="three">
                         <h2>Get In Touch</h2>
-                        <p>Accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque lorem ipsum dolor.</p>
+                        <p>Send me a message here, an email or a linkedIn inMail, I will get back to you as soon as possible.</p>
                         <div className="row">
                             <div className="8u 12u$(small)">
                                 <form method="post" action="#">
@@ -134,17 +134,16 @@ class HomeIndex extends React.Component {
                                 <ul className="labeled-icons">
                                     <li>
                                         <h3 className="icon fa-home"><span className="label">Address</span></h3>
-                                        1234 Somewhere Rd.<br />
-                                        Nashville, TN 00000<br />
+                                        Austin, TX 78750<br />
                                         United States
                                     </li>
                                     <li>
-                                        <h3 className="icon fa-mobile"><span className="label">Phone</span></h3>
-                                        000-000-0000
-                                    </li>
-                                    <li>
                                         <h3 className="icon fa-envelope-o"><span className="label">Email</span></h3>
-                                        <a href="#">hello@untitled.tld</a>
+                                        <a href="mailto:lchen139@gmail.com" target="_blank">lchen139@gmail.com</a>
+                                    </li>
+                                                                        <li>
+                                        <h3 className="icon fa-linkedin"><span className="label">LinkedIn</span></h3>
+                                        <a href="https://www.linkedin.com/in/chenli777/" target="_blank">{"https://www.linkedin.com/in/chenli777/"}</a>
                                     </li>
                                 </ul>
                             </div>
