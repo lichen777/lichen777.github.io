@@ -1,25 +1,26 @@
 import React from 'react'
 
 import Footer from './Footer'
-import avatar from '../assets/images/avatar.jpg'
+const avatar = 'https://avatars0.githubusercontent.com/u/9433422?s=460&v=4'
 
 class Header extends React.Component {
-    render() {
-        return <header id="header">
-            <div className="inner">
-              <a href="#" className="image avatar">
-                <img src={avatar} alt="ava" />
-              </a>
-              <h1>
-                <strong>I am Chen Li</strong>
-                <br />
-                Full-Stack Engineer | Lifetime Learner| Problem Solver | Innovator<br />
-                React/Redux, NodeJS, Python/Django, Java, Blockchain
-              </h1>
-            </div>
-            <Footer />
-          </header>
-    }
+  render() {
+    return <header id="header">
+        <div className="inner">
+          <a href="https://github.com/lichen777" target="_blank" className="image avatar">
+            <img src={avatar} alt="ava" />
+          </a>
+          <h1>
+            <strong>Chen Li</strong>
+          </h1>
+          <h4>
+              Full-Stack Engineer
+              <p>React/Redux, NodeJS, Python, Blockchain</p>
+          </h4>
+        </div>
+        <Footer />
+      </header>
+  }
 }
 
 export default Header

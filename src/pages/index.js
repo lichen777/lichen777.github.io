@@ -3,7 +3,6 @@ import Link from 'gatsby-link'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 
-// import Lightbox from 'react-images'
 import Gallery from '../components/Gallery'
 
 import thumb01 from '../assets/images/thumbs/01.jpg'
@@ -30,131 +29,185 @@ const DEFAULT_IMAGES = [
 ];
 
 class HomeIndex extends React.Component {
+  constructor() {
+    super()
 
-    constructor() {
-        super();
-
-        this.state = {
-            lightboxIsOpen: false,
-            currentImage: 0,
-        };
-
-        this.closeLightbox = this.closeLightbox.bind(this);
-        this.gotoNext = this.gotoNext.bind(this);
-        this.gotoPrevious = this.gotoPrevious.bind(this);
-        this.openLightbox = this.openLightbox.bind(this);
-        this.handleClickImage = this.handleClickImage.bind(this);
+    this.state = {
+      lightboxIsOpen: false,
+      moreIsOpen: false,
+      currentImage: 0,
     }
 
-    openLightbox (index, event) {
-        event.preventDefault();
-        this.setState({
-            currentImage: index,
-            lightboxIsOpen: true,
-        });
+    this.closeLightbox = this.closeLightbox.bind(this)
+    this.gotoNext = this.gotoNext.bind(this)
+    this.gotoPrevious = this.gotoPrevious.bind(this)
+    this.openLightbox = this.openLightbox.bind(this)
+    this.handleClickImage = this.handleClickImage.bind(this)
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  openLightbox(index, event) {
+    event.preventDefault()
+    this.setState({
+      currentImage: index,
+      lightboxIsOpen: true,
+    })
+  }
+  closeLightbox() {
+    this.setState({
+      currentImage: 0,
+      lightboxIsOpen: false,
+    })
+  }
+  gotoPrevious() {
+    this.setState({
+      currentImage: this.state.currentImage - 1,
+    })
+  }
+  gotoNext() {
+    this.setState({
+      currentImage: this.state.currentImage + 1,
+    })
+  }
+  handleClickImage() {
+    if (this.state.currentImage === this.props.images.length - 1) return
+
+    this.gotoNext()
+  }
+
+  handleClick() {
+    if (!this.state.moreIsOpen) {
+        this.setState({ moreIsOpen: true })
     }
-    closeLightbox () {
-        this.setState({
-            currentImage: 0,
-            lightboxIsOpen: false,
-        });
-    }
-    gotoPrevious () {
-        this.setState({
-            currentImage: this.state.currentImage - 1,
-        });
-    }
-    gotoNext () {
-        this.setState({
-            currentImage: this.state.currentImage + 1,
-        });
-    }
-    handleClickImage () {
-        if (this.state.currentImage === this.props.images.length - 1) return;
+  }
 
-        this.gotoNext();
-    }
+  render() {
+    return <div>
 
-    render() {
-        const siteTitle = this.props.data.site.siteMetadata.title
-        const siteDescription = this.props.data.site.siteMetadata.description
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Chen Li - My Page</title>
+        </Helmet>
 
-        return (
-            <div>
-                <Helmet>
-                        <title>{siteTitle}</title>
-                        <meta name="description" content={siteDescription} />
-                </Helmet>
+        <div id="main">
+          <section id="one">
+            <header className="major">
+              <h2>About Me</h2>
+            </header>
+            <p>
+              Full Stack Engineer | Lifetime Learner | Problem Solver |
+              Innovator
+            </p>
+            <p>
+              Full Stack Development Engineer with an MSEE background and
+              five years of industry experience managing product lines who
+              is detailed orientated and able to learn quickly. Strengths in
+              product roadmap development and introductions, competitive
+              analysis, customer application support, customer trainings and
+              distributions channels. Enjoys working with the most advanced
+              technologies in the software development industry and whose
+              desire in being a Product Manager for software or web
+              application.
+            </p>
+            <p>Tech Stack: </p>
+            {this.state.moreIsOpen ? <div>
+                <p>
+                  Client End: React, Redux, Bootstrap, JQuery, CSS, HTML
+                </p>
+                <p>
+                  Server End: NodeJS, Express, Python, Django, Java, Spring
+                </p>
+                <p>Database: MySQL, PostgreSQL, MongoDB, Redis</p>
+              </div> : ''}
+            {this.state.moreIsOpen ? '' : <ul className="actions">
+                <li>
+                  <button onClick={this.handleClick} className="button">
+                    Learn More
+                  </button>
+                </li>
+              </ul>}
+          </section>
 
-                <div id="main">
+          <section id="two">
+            <h2>Recent Work</h2>
 
-                    <section id="one">
-                        <header className="major">
-                            <h2>Ipsum lorem dolor aliquam ante commodo<br />
-                            magna sed accumsan arcu neque.</h2>
-                        </header>
-                        <p>Accumsan orci faucibus id eu lorem semper. Eu ac iaculis ac nunc nisi lorem vulputate lorem neque cubilia ac in adipiscing in curae lobortis tortor primis integer massa adipiscing id nisi accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque cubilia.</p>
-                        <ul className="actions">
-                            <li><a href="#" className="button">Learn More</a></li>
-                        </ul>
-                    </section>
+            <Gallery images={DEFAULT_IMAGES.map(
+                ({ id, src, thumbnail, caption, description }) => ({
+                  src,
+                  thumbnail,
+                  caption,
+                  description,
+                })
+              )} />
 
-                    <section id="two">
-                        <h2>Recent Work</h2>
+            <ul className="actions">
+              <li>
+                <Link to="/portfolio" className="button">
+                  Full Portfolio
+                </Link>
+              </li>
+            </ul>
+          </section>
 
-                        <Gallery images={DEFAULT_IMAGES.map(({ id, src, thumbnail, caption, description }) => ({
-                            src,
-                            thumbnail,
-                            caption,
-                            description
-                        }))} />
-
-                        <ul className="actions">
-                            <li><a href="#" className="button">Full Portfolio</a></li>
-                        </ul>
-                    </section>
-
-                    <section id="three">
-                        <h2>Get In Touch</h2>
-                        <p>Send me a message here, an email or a linkedIn inMail, I will get back to you as soon as possible.</p>
-                        <div className="row">
-                            <div className="8u 12u$(small)">
-                                <form method="post" action="#">
-                                    <div className="row uniform 50%">
-                                        <div className="6u 12u$(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
-                                        <div className="6u 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
-                                        <div className="12u"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
-                                    </div>
-                                </form>
-                                <ul className="actions">
-                                    <li><input type="submit" value="Send Message" /></li>
-                                </ul>
-                            </div>
-                            <div className="4u 12u$(small)">
-                                <ul className="labeled-icons">
-                                    <li>
-                                        <h3 className="icon fa-home"><span className="label">Address</span></h3>
-                                        Austin, TX 78750<br />
-                                        United States
-                                    </li>
-                                    <li>
-                                        <h3 className="icon fa-envelope-o"><span className="label">Email</span></h3>
-                                        <a href="mailto:lchen139@gmail.com" target="_blank">lchen139@gmail.com</a>
-                                    </li>
-                                                                        <li>
-                                        <h3 className="icon fa-linkedin"><span className="label">LinkedIn</span></h3>
-                                        <a href="https://www.linkedin.com/in/chenli777/" target="_blank">{"https://www.linkedin.com/in/chenli777/"}</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-
-                </div>
-
+          <section id="three">
+            <h2>Get In Touch</h2>
+            <p>
+              Send me a message, an email or a linkedIn InMail, I will get
+              back to you as soon as possible.
+            </p>
+            <div className="row">
+              <div className="8u 12u$(small)">
+                <form method="post" action="#">
+                  <div className="row uniform 50%">
+                    <div className="6u 12u$(xsmall)">
+                      <input type="text" name="name" id="name" placeholder="Name" />
+                    </div>
+                    <div className="6u 12u$(xsmall)">
+                      <input type="email" name="email" id="email" placeholder="Email" />
+                    </div>
+                    <div className="12u">
+                      <textarea name="message" id="message" placeholder="Message" rows="4" />
+                    </div>
+                  </div>
+                </form>
+                <ul className="actions">
+                  <li>
+                    <input type="submit" value="Send Message" />
+                  </li>
+                </ul>
+              </div>
+              <div className="4u 12u$(small)">
+                <ul className="labeled-icons">
+                  <li>
+                    <h3 className="icon fa-home">
+                      <span className="label">Address</span>
+                    </h3>
+                    Austin, TX <br />
+                    United States
+                  </li>
+                  <li>
+                    <h3 className="icon fa-envelope-o">
+                      <span className="label">Email</span>
+                    </h3>
+                    <a href="mailto:lchen139@gmail.com" target="_blank">
+                      lchen139@gmail.com
+                    </a>
+                  </li>
+                  <li>
+                    <h3 className="icon fa-linkedin">
+                      <span className="label">LinkedIn</span>
+                    </h3>
+                    <a href="https://www.linkedin.com/in/chenli777/" target="_blank">
+                      {'LinkedIn Profile'}
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
-        )
-    }
+          </section>
+        </div>
+      </div>
+  }
 }
 
 export default HomeIndex
