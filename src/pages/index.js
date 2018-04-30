@@ -20,13 +20,53 @@ import full05 from '../assets/images/fulls/05.jpg'
 import full06 from '../assets/images/fulls/06.jpg'
 
 const DEFAULT_IMAGES = [
-    { id: '1', src: full01, thumbnail: thumb01, caption: 'Photo 1', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '2', src: full02, thumbnail: thumb02, caption: 'Photo 2', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '3', src: full03, thumbnail: thumb03, caption: 'Photo 3', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '4', src: full04, thumbnail: thumb04, caption: 'Photo 4', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '5', src: full05, thumbnail: thumb05, caption: 'Photo 5', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'},
-    { id: '6', src: full06, thumbnail: thumb06, caption: 'Photo 6', description: 'Lorem ipsum dolor sit amet nisl sed nullam feugiat.'}
-];
+  {
+    id: '1',
+    src: full01,
+    thumbnail: thumb01,
+    caption: 'EtherFund',
+    description:
+      'Blockchain based crowdfunding platform with Ethereum blockchain smart contract.',
+  },
+  {
+    id: '2',
+    src: full02,
+    thumbnail: thumb02,
+    caption: 'E-Store Command Line Management System',
+    description:
+      'command line content management system for E-Commerce Business with MySQL and NodeJS',
+  },
+  {
+    id: '3',
+    src: full03,
+    thumbnail: thumb03,
+    caption: 'Scotch Scraper',
+    description: 'Scotch-io Web Scrapping Application using MERN stack.',
+  },
+  {
+    id: '4',
+    src: full04,
+    thumbnail: thumb05,
+    caption: 'Construction MGMT',
+    description:
+      'construction field management system that improves quality control, accelerates project delivery, safety and profitability for construction projects of all sizes.',
+  },
+  {
+    id: '5',
+    src: full05,
+    thumbnail: thumb05,
+    caption: 'Click Game',
+    description: 'Click Memory Game using React',
+  },
+  {
+    id: '6',
+    src: full06,
+    thumbnail: thumb06,
+    caption: 'RPS Game',
+    description:
+      'Multiplayer online RPS game with real-time chatting using Firebase, Bootstrap and JQuery.',
+  },
+]
 
 class HomeIndex extends React.Component {
   constructor() {
@@ -83,7 +123,6 @@ class HomeIndex extends React.Component {
 
   render() {
     return <div>
-
         <Helmet>
           <meta charSet="utf-8" />
           <title>Chen Li - My Page</title>
@@ -109,8 +148,8 @@ class HomeIndex extends React.Component {
               desire in being a Product Manager for software or web
               application.
             </p>
-            <p>Tech Stack: </p>
             {this.state.moreIsOpen ? <div>
+                <p>Tech Stack: </p>
                 <p>
                   Client End: React, Redux, Bootstrap, JQuery, CSS, HTML
                 </p>
@@ -150,6 +189,14 @@ class HomeIndex extends React.Component {
           </section>
 
           <section id="three">
+            <h2>
+              <Link to="/resume">
+                Resume
+              </Link>
+            </h2>
+          </section>
+
+          <section id="four">
             <h2>Get In Touch</h2>
             <p>
               Send me a message, an email or a linkedIn InMail, I will get

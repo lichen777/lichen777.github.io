@@ -15,7 +15,7 @@ class Header extends React.Component {
           </h1>
           <h4>
               Full-Stack Engineer
-              <p>React/Redux, NodeJS, Python, Blockchain</p>
+              <p>JavaScript, React, Node.js, Python, Blockchain</p>
           </h4>
         </div>
         <Footer />

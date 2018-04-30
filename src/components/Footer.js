@@ -23,7 +23,7 @@ class Footer extends React.Component {
               </ul>
               <ul className="copyright">
                 <li>
-                  Design: <a href="https://www.gatsbyjs.org/" target="_blank">
+                  Design with <a href="https://www.gatsbyjs.org/" target="_blank">
                     Gatsby
                   </a> & <a href="http://html5up.net" target="_blank">
                     HTML5 UP
