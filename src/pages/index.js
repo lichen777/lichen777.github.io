@@ -46,7 +46,7 @@ const DEFAULT_IMAGES = [
   {
     id: '4',
     src: full04,
-    thumbnail: thumb05,
+    thumbnail: thumb04,
     caption: 'Construction MGMT',
     description:
       'construction field management system that improves quality control, accelerates project delivery, safety and profitability for construction projects of all sizes.',
