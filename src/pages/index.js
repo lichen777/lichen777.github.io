@@ -5,15 +5,15 @@ import Helmet from 'react-helmet'
 
 import Gallery from '../components/Gallery'
 
-import thumb01 from '../assets/images/thumbs/01.jpg'
-import thumb02 from '../assets/images/thumbs/02.jpg'
+import thumb01 from '../assets/images/thumbs/01.png'
+import thumb02 from '../assets/images/thumbs/02.png'
 import thumb03 from '../assets/images/thumbs/03.jpg'
 import thumb04 from '../assets/images/thumbs/04.jpg'
 import thumb05 from '../assets/images/thumbs/05.jpg'
 import thumb06 from '../assets/images/thumbs/06.jpg'
 
-import full01 from '../assets/images/fulls/01.jpg'
-import full02 from '../assets/images/fulls/02.jpg'
+import full01 from '../assets/images/fulls/01.png'
+import full02 from '../assets/images/fulls/02.png'
 import full03 from '../assets/images/fulls/03.jpg'
 import full04 from '../assets/images/fulls/04.jpg'
 import full05 from '../assets/images/fulls/05.jpg'
@@ -26,22 +26,23 @@ const DEFAULT_IMAGES = [
     thumbnail: thumb01,
     caption: 'EtherFund',
     description:
-      'Blockchain based crowdfunding platform with Ethereum blockchain smart contract.',
+      'Blockchain based crowdfunding platform with Ethereum blockchain smart contract. \nhttps://etherfund.herokuapp.com/',
   },
   {
     id: '2',
     src: full02,
     thumbnail: thumb02,
-    caption: 'E-Store Command Line Management System',
+    caption: 'Scotch Scraper',
     description:
-      'command line content management system for E-Commerce Business with MySQL and NodeJS',
+      'Scotch-io Web Crawler Application using MongoDB, Express, React and Node.js. \nhttp://scotch-scraper.surge.sh/',
   },
   {
     id: '3',
     src: full03,
     thumbnail: thumb03,
-    caption: 'Scotch Scraper',
-    description: 'Scotch-io Web Scrapping Application using MERN stack.',
+    caption: 'E-Store Command Line Management System',
+    description:
+      'command line content management system for E-Commerce Business with MySQL and NodeJS',
   },
   {
     id: '4',
@@ -140,12 +141,8 @@ class HomeIndex extends React.Component {
             <p>
               Full Stack Development Engineer with an MSEE background and
               five years of industry experience managing product lines who
-              is detailed orientated and able to learn quickly. Strengths in
-              product roadmap development and introductions, competitive
-              analysis, customer application support, customer trainings and
-              distributions channels. Enjoys working with the most advanced
-              technologies in the software development industry and whose
-              desire in being a Product Manager for software or web
+              is detailed orientated and able to learn quickly. Enjoys working with the most advanced
+              technologies in the software development industry and desires being a Product Manager for software or web
               application.
             </p>
             {this.state.moreIsOpen ? <div>
@@ -170,13 +167,8 @@ class HomeIndex extends React.Component {
           <section id="two">
             <h2>Recent Work</h2>
 
-            <Gallery images={DEFAULT_IMAGES.map(
-                ({ id, src, thumbnail, caption, description }) => ({
-                  src,
-                  thumbnail,
-                  caption,
-                  description,
-                })
+            <Gallery images={DEFAULT_IMAGES.filter(
+                ({ id, src, thumbnail, caption, description }) => (id < 3)
               )} />
 
             <ul className="actions">
