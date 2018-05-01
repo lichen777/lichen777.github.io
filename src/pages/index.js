@@ -7,17 +7,13 @@ import Gallery from '../components/Gallery'
 
 import thumb01 from '../assets/images/thumbs/01.png'
 import thumb02 from '../assets/images/thumbs/02.png'
-import thumb03 from '../assets/images/thumbs/03.jpg'
-import thumb04 from '../assets/images/thumbs/04.jpg'
-import thumb05 from '../assets/images/thumbs/05.jpg'
-import thumb06 from '../assets/images/thumbs/06.jpg'
+import thumb03 from '../assets/images/thumbs/03.png'
+import thumb04 from '../assets/images/thumbs/04.png'
 
 import full01 from '../assets/images/fulls/01.png'
 import full02 from '../assets/images/fulls/02.png'
-import full03 from '../assets/images/fulls/03.jpg'
-import full04 from '../assets/images/fulls/04.jpg'
-import full05 from '../assets/images/fulls/05.jpg'
-import full06 from '../assets/images/fulls/06.jpg'
+import full03 from '../assets/images/fulls/03.png'
+import full04 from '../assets/images/fulls/04.png'
 
 const DEFAULT_IMAGES = [
   {
@@ -26,7 +22,8 @@ const DEFAULT_IMAGES = [
     thumbnail: thumb01,
     caption: 'EtherFund',
     description:
-      'Blockchain based crowdfunding platform with Ethereum blockchain smart contract. \nhttps://etherfund.herokuapp.com/',
+      'Blockchain based crowdfunding platform with Ethereum blockchain smart contract.',
+    link: 'https://etherfund.herokuapp.com'
   },
   {
     id: '2',
@@ -34,7 +31,8 @@ const DEFAULT_IMAGES = [
     thumbnail: thumb02,
     caption: 'Scotch Scraper',
     description:
-      'Scotch-io Web Crawler Application using MongoDB, Express, React and Node.js. \nhttp://scotch-scraper.surge.sh/',
+      'Scotch-io Web Crawler Application using MongoDB, Express, React and Node.js.',
+    link: 'https://scotch-scraper.herokuapp.com'
   },
   {
     id: '3',
@@ -43,6 +41,7 @@ const DEFAULT_IMAGES = [
     caption: 'E-Store Command Line Management System',
     description:
       'command line content management system for E-Commerce Business with MySQL and NodeJS',
+    link: 'https://github.com/lichen777/bAmazon'
   },
   {
     id: '4',
@@ -51,22 +50,8 @@ const DEFAULT_IMAGES = [
     caption: 'Construction MGMT',
     description:
       'construction field management system that improves quality control, accelerates project delivery, safety and profitability for construction projects of all sizes.',
-  },
-  {
-    id: '5',
-    src: full05,
-    thumbnail: thumb05,
-    caption: 'Click Game',
-    description: 'Click Memory Game using React',
-  },
-  {
-    id: '6',
-    src: full06,
-    thumbnail: thumb06,
-    caption: 'RPS Game',
-    description:
-      'Multiplayer online RPS game with real-time chatting using Firebase, Bootstrap and JQuery.',
-  },
+    link: 'https://github.com/jrr564/ConstructionMGMT'
+  }
 ]
 
 class HomeIndex extends React.Component {
@@ -168,7 +153,7 @@ class HomeIndex extends React.Component {
             <h2>Recent Work</h2>
 
             <Gallery images={DEFAULT_IMAGES.filter(
-                ({ id, src, thumbnail, caption, description }) => (id < 3)
+                ({ id, src, thumbnail, caption, description, link }) => (id < 3)
               )} />
 
             <ul className="actions">

@@ -69,6 +69,7 @@ class Gallery extends Component {
 
                     <h3>{obj.caption}</h3>
                     <p>{obj.description}</p>
+                    <a href={obj.link} target="_blank">link </a>
                 </article>
             );
         });
