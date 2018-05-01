@@ -100,7 +100,20 @@ class HomeIndex extends React.Component {
 
     this.gotoNext()
   }
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.target);
 
+    fetch('https://z9snwe3a07.execute-api.us-east-1.amazonaws.com/RequestBlog/blog', {
+      headers: {
+        'content-type': 'application/json',
+        'Accept': 'application/json',
+        'Origin': 'http://localhost:8000/'
+      },
+      method: 'POST',
+      body: data,
+    });
+  }
   handleClick() {
     if (!this.state.moreIsOpen) {
         this.setState({ moreIsOpen: true })
@@ -133,10 +146,13 @@ class HomeIndex extends React.Component {
             {this.state.moreIsOpen ? <div>
                 <p>Tech Stack: </p>
                 <p>
-                  Client End: React, Redux, Bootstrap, JQuery, CSS, HTML
+                  Client Side: React, Redux, Bootstrap CSS framework, JQuery, CSS, HTML
                 </p>
                 <p>
-                  Server End: NodeJS, Express, Python, Django, Java, Spring
+                  Server Side: NodeJS, Express, Python, Django
+                </p>
+                <p>
+                  Blockchain: Web3 API, Truffle Ethereum framework, Solidity Smart Contract
                 </p>
                 <p>Database: MySQL, PostgreSQL, MongoDB, Redis</p>
               </div> : ''}
@@ -181,7 +197,7 @@ class HomeIndex extends React.Component {
             </p>
             <div className="row">
               <div className="8u 12u$(small)">
-                <form method="post" action="#">
+                <form method="post" onSubmit={this.handleSubmit}>
                   <div className="row uniform 50%">
                     <div className="6u 12u$(xsmall)">
                       <input type="text" name="name" id="name" placeholder="Name" />
@@ -193,12 +209,9 @@ class HomeIndex extends React.Component {
                       <textarea name="message" id="message" placeholder="Message" rows="4" />
                     </div>
                   </div>
+                  <br />
+                  <input  className="actions" type="submit" value="Send Message" />
                 </form>
-                <ul className="actions">
-                  <li>
-                    <input type="submit" value="Send Message" />
-                  </li>
-                </ul>
               </div>
               <div className="4u 12u$(small)">
                 <ul className="labeled-icons">
