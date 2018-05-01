@@ -102,17 +102,21 @@ class HomeIndex extends React.Component {
   }
   handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.target);
-
+    const data = {
+      name: event.target.name.value,
+      email: event.target.email.value,
+      message: event.target.message.value
+    }
     fetch('https://z9snwe3a07.execute-api.us-east-1.amazonaws.com/RequestBlog/blog', {
       headers: {
-        'content-type': 'application/json',
-        'Accept': 'application/json',
-        'Origin': 'http://localhost:8000/'
+        'content-type': 'application/json'
       },
       method: 'POST',
-      body: data,
-    });
+      body: JSON.stringify(data),
+      mode: 'no-cors'
+    })
+    .catch(error => console.error('Error:', error))
+    .then(response => console.log('Success'));;
   }
   handleClick() {
     if (!this.state.moreIsOpen) {
