@@ -167,9 +167,9 @@ class HomeIndex extends React.Component {
 
           <section id="three">
             <h2>
-              <Link to="/resume">
+              <a href="http://res.cloudinary.com/lchen139/image/upload/v1525005923/Chen_Li_-_20180423.pdf" target="_blank">
                 Resume
-              </Link>
+              </a>
             </h2>
           </section>
 
